@@ -1,54 +1,21 @@
+// can't get this to work
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { PromptTemplate } from "langchain/prompts";
 import { StringOutputParser } from "langchain/schema/output_parser";
-
-// import { retriever } from "/utils/retriever";
-
-import { SupabaseVectorStore } from "langchain/vectorstores/supabase";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
-import { createClient } from "@supabase/supabase-js";
-
-const openAIApiKey = process.env.OPENAI_API_KEY;
-
-const embeddings = new OpenAIEmbeddings({ openAIApiKey });
-const sbApiKey = process.env.SUPABASE_API_KEY;
-const sbUrl = process.env.SUPABASE_URL_LC_CHATBOT;
-const client = createClient(sbUrl, sbApiKey);
-const vectorStore = new SupabaseVectorStore(embeddings, {
-  client,
-  tableName: "documents",
-  queryName: "match_documents",
-});
-
-// import { combineDocuments } from "/utils/combineDocuments";
-function combineDocuments(docs) {
-  return docs.map((doc) => doc.pageContent).join("\n\n");
-}
-
+import { retriever } from "/utils/retriever";
+import { combineDocuments } from "/utils/combineDocuments";
 import {
   RunnablePassthrough,
   RunnableSequence,
 } from "langchain/schema/runnable";
-
-// import { formatConvHistory } from "/utils/formatConvHistory";
-function formatConvHistory(messages) {
-  return messages
-    .map((message, i) => {
-      if (i % 2 === 0) {
-        return `Human: ${message}`;
-      } else {
-        return `AI: ${message}`;
-      }
-    })
-    .join("\n");
-}
+import { formatConvHistory } from "/utils/formatConvHistory";
 
 document.addEventListener("submit", (e) => {
   e.preventDefault();
   progressConversation();
 });
 
-// const openAIApiKey = process.env.OPENAI_API_KEY;
+const openAIApiKey = process.env.OPENAI_API_KEY;
 const llm = new ChatOpenAI({ openAIApiKey });
 
 const standaloneQuestionTemplate = `Given some conversation history (if any) and a question, convert the question to a standalone question. 
