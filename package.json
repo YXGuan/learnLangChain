@@ -1,0 +1,10 @@
+{
+    "name": "test-package",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "index.js",
+    "dependencies": {
+        "@supabase/supabase-js": "^2.39.3",
+        "langchain": "^0.1.17"
+    }
+}
