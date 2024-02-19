@@ -1,14 +1,17 @@
 # learnLangChain
 
-### demo
+### Goals
+1. Utilize LangChain for constructing GPT-powered chatbots equipped with tailored knowledge of a given dataset (by scrapping website into txt file). 
+2. Employ text embeddings alongside a vector database to execute retrieval-augmented generation (RAG) seamlessly.
+
+### Demo
 https://q3w33c-1234.csb.app/
 ![image](https://github.com/YXGuan/learnLangChain/assets/55643200/ab227649-d7d9-4820-8610-06eaa39d5f04)
 
 
-### reference & credit
-https://www.youtube.com/watch?v=HSZ_uaif57o&t=5323s&ab_channel=freeCodeCamp.org
+### Work flow
 ![image](https://github.com/YXGuan/learnLangChain/assets/55643200/0c7a1bf4-58eb-465e-a9f1-30692a065f44)
-
+(reference: https://www.youtube.com/watch?v=HSZ_uaif57o&t=5323s&ab_channel=freeCodeCamp.org)
 
 ### Todo:
 
@@ -38,4 +41,8 @@ https://www.youtube.com/watch?v=HSZ_uaif57o&t=5323s&ab_channel=freeCodeCamp.org
 
 - [ ]  start with an AI conversation first ( offer a few example prompts ) 
 
-- [ ]  how to reduce cost? (record answers to questions) 
+- [ ]  how to reduce cost? (record answers to questions)
+
+
+### Cost
+https://platform.openai.com/usage
